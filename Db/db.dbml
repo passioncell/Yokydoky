@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="yokydoky" Class="dbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=114.70.234.168;Initial Catalog=yokydoky;Persist Security Info=True;User ID=yokydoky" SettingsObjectName="Db.Properties.Settings" SettingsPropertyName="yokydokyConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Article" Member="Article">
+    <Type Name="Article">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="title" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="content" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="reporter" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="write_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="modify_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="keyword" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="[like]" Member="like" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FK_ArticleCategory" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ArticleCategory_Article" Member="ArticleCategory" ThisKey="FK_ArticleCategory" OtherKey="Id" Type="ArticleCategory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SearchKeywordModel" Member="SearchKeywordModel">
+    <Type Name="SearchKeywordModel">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="keyword" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="SearchKeywordModel_MemberKeyword" Member="MemberKeyword" ThisKey="id" OtherKey="FK_SearchKeywordModel" Type="MemberKeyword" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ArticleCategory" Member="ArticleCategory">
+    <Type Name="ArticleCategory">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="ArticleCategory_Article" Member="Article" ThisKey="Id" OtherKey="FK_ArticleCategory" Type="Article" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Member" Member="Member">
+    <Type Name="Member">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="birthday" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="sex" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Member_MemberKeyword" Member="MemberKeyword" ThisKey="id" OtherKey="FK_Member" Type="MemberKeyword" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MemberKeyword" Member="MemberKeyword">
+    <Type Name="MemberKeyword">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FK_Member" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FK_SearchKeywordModel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Member_MemberKeyword" Member="Member" ThisKey="FK_Member" OtherKey="id" Type="Member" IsForeignKey="true" />
+      <Association Name="SearchKeywordModel_MemberKeyword" Member="SearchKeywordModel" ThisKey="FK_SearchKeywordModel" OtherKey="id" Type="SearchKeywordModel" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.signUp" Method="signUp">
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="password" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="birthday" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="sex" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

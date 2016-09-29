@@ -1,0 +1,130 @@
+﻿@model IEnumerable<Db.MemberKeyword>
+
+@{
+    ViewBag.Title = "SetKeyword";
+}
+<style type="text/css">
+    #custom-search-input{
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 23px;
+}
+</style>
+<script>
+  $( function() {
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  } );
+</script>
+
+<h2>나의 키워드를 추가해보세요!</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input id="autocomplete" type="text" class="form-control input-lg" placeholder="키워드 입력" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h2>내키워드</h2>
+@foreach (var item in Model)
+{
+    <span class="label label-primary">@item.SearchKeywordModel.keyword</span>
+
+}
+
+
+
+<script>
+    $(function () {
+        $("#autocomplete").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    type: 'post',
+                    url: "../GetAutoCompleteData",
+                    dataType: "json",
+                    //request.term = $("#autocomplete").val()
+                    data: { value: request.term },
+                    success: function (data) {
+                        //서버에서 json 데이터 response 후 목록에 뿌려주기 위함
+                        response(
+                            $.map(data, function (item) {
+                                return {
+                                    label: item.keyword,
+                                    value: item.keyword
+                                }
+                            })
+                        );
+                    }
+                });
+            },
+            //조회를 위한 최소글자수
+            minLength: 2,
+            select: function (event, ui) {
+                // 만약 검색리스트에서 선택하였을때 선택한 데이터에 의한 이벤트발생
+            }
+        });
+    })
+
+</script>

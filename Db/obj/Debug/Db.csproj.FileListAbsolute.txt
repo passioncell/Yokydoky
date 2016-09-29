@@ -1,0 +1,6 @@
+D:\Develop\dotnet_project\YokyDoky\Db\bin\Debug\Db.dll.config
+D:\Develop\dotnet_project\YokyDoky\Db\bin\Debug\Db.dll
+D:\Develop\dotnet_project\YokyDoky\Db\bin\Debug\Db.pdb
+D:\Develop\dotnet_project\YokyDoky\Db\obj\Debug\Db.dll
+D:\Develop\dotnet_project\YokyDoky\Db\obj\Debug\Db.pdb
+D:\Develop\dotnet_project\YokyDoky\Db\obj\Debug\Db.csprojResolveAssemblyReference.cache

@@ -1,0 +1,7 @@
+D:\Develop\dotnet_project\YokyDoky\Business\bin\Debug\Business.dll
+D:\Develop\dotnet_project\YokyDoky\Business\bin\Debug\Business.pdb
+D:\Develop\dotnet_project\YokyDoky\Business\bin\Debug\Db.dll
+D:\Develop\dotnet_project\YokyDoky\Business\bin\Debug\Db.pdb
+D:\Develop\dotnet_project\YokyDoky\Business\obj\Debug\Business.csprojResolveAssemblyReference.cache
+D:\Develop\dotnet_project\YokyDoky\Business\obj\Debug\Business.dll
+D:\Develop\dotnet_project\YokyDoky\Business\obj\Debug\Business.pdb

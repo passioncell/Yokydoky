@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YokyDoky", "YokyDoky\YokyDoky.csproj", "{B58B4179-CB81-4210-80B1-48A1E538EA9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{36F39229-FEE6-410A-A901-BBB409B8D533}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Db", "Db\Db.csproj", "{A426DF2C-FBFA-4E28-BF23-6AE30BD3CF86}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B58B4179-CB81-4210-80B1-48A1E538EA9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B58B4179-CB81-4210-80B1-48A1E538EA9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B58B4179-CB81-4210-80B1-48A1E538EA9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B58B4179-CB81-4210-80B1-48A1E538EA9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36F39229-FEE6-410A-A901-BBB409B8D533}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36F39229-FEE6-410A-A901-BBB409B8D533}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36F39229-FEE6-410A-A901-BBB409B8D533}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36F39229-FEE6-410A-A901-BBB409B8D533}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A426DF2C-FBFA-4E28-BF23-6AE30BD3CF86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A426DF2C-FBFA-4E28-BF23-6AE30BD3CF86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A426DF2C-FBFA-4E28-BF23-6AE30BD3CF86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A426DF2C-FBFA-4E28-BF23-6AE30BD3CF86}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
