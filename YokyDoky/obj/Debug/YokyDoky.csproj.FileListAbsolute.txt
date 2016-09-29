@@ -103,3 +103,7 @@ D:\Develop\dotnet_project\YokyDoky\YokyDoky\bin\Business.dll
 D:\Develop\dotnet_project\YokyDoky\YokyDoky\bin\Db.dll
 D:\Develop\dotnet_project\YokyDoky\YokyDoky\bin\Business.pdb
 D:\Develop\dotnet_project\YokyDoky\YokyDoky\bin\Db.pdb
+D:\Develop\dotnet_project\YokyDoky\YokyDoky\bin\PagedList.dll
+D:\Develop\dotnet_project\YokyDoky\YokyDoky\bin\PagedList.Mvc.dll
+D:\Develop\dotnet_project\YokyDoky\YokyDoky\bin\PagedList.xml
+D:\Develop\dotnet_project\YokyDoky\YokyDoky\bin\PagedList.Mvc.xml

@@ -1,4 +1,7 @@
-﻿@model IEnumerable<Business.Entitys.ArticleListModel>
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<Business.Entitys.ArticleListModel>
 
 @{
     ViewBag.Title = "NewsList";
@@ -6,13 +9,13 @@
 
 <br />
 <ul class="nav nav-pills" role="tablist">
-    <li role="presentation" class="active"><a href="#">전체<span class="badge">42</span></a></li>
-    <li role="presentation"><a href="#">문화</a></li>
-    <li role="presentation"><a href="#">경제</a></li>
-    <li role="presentation"><a href="#">국제</a></li>
-    <li role="presentation"><a href="#">과학/IT</a></li>
-    <li role="presentation"><a href="#">정치</a></li>
-    <li role="presentation"><a href="#">사회</a></li>
+    <li role="presentation" class="@(ViewBag.category == 0 ? "active" : "")"><a href="~/Home/NewsList?id=@ViewBag.memberId&category=0">전체</a></li>
+    <li role="presentation"  class="@(ViewBag.category == 1 ? "active" : "")"><a href="~/Home/NewsList?id=@ViewBag.memberId&category=1">문화</a></li>
+    <li role="presentation"  class="@(ViewBag.category == 2 ? "active" : "")"><a href="~/Home/NewsList?id=@ViewBag.memberId&category=2">경제</a></li>
+    <li role="presentation"  class="@(ViewBag.category == 3 ? "active" : "")"><a href="~/Home/NewsList?id=@ViewBag.memberId&category=3">국제</a></li>
+    <li role="presentation"  class="@(ViewBag.category == 4 ? "active" : "")"><a href="~/Home/NewsList?id=@ViewBag.memberId&category=4">과학/IT</a></li>
+    <li role="presentation"  class="@(ViewBag.category == 5 ? "active" : "")"><a href="~/Home/NewsList?id=@ViewBag.memberId&category=5">정치</a></li>
+    <li role="presentation"  class="@(ViewBag.category == 6 ? "active" : "")"><a href="~/Home/NewsList?id=@ViewBag.memberId&category=6">사회</a></li>
 </ul>
 
 <br />
@@ -32,3 +35,9 @@
     </div>
 
 }
+
+<div class="row">
+    <center>
+        @Html.PagedListPager(Model, page => Url.Action("NewsList", new {id = Session[YokyDoky.claGlobal.SessionString_UserKey], category = ViewBag.category ,page }))
+    </center>
+</div>

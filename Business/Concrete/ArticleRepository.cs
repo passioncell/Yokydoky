@@ -14,19 +14,40 @@ namespace Business.Concrete
     {
         public IEnumerable<ArticleListModel> getArticleList(int memberId, int categoryNumber)
         {
-            var list = (from p in db.Article
-                        select new ArticleListModel
-                        {
-                            id = p.id,
-                            title = p.title,
-                            content = getSumArticle(p.content),
-                            reporter = p.reporter,
-                            write_date = p.write_date,
-                            modify_date = p.modify_date,
-                            keyword = p.keyword
-                        }).ToList();
+            if(categoryNumber == 0) //전체보기
+            {
+                 var list = (from p in db.Article
+                             orderby p.write_date descending
+                             select new ArticleListModel
+                            {
+                                id = p.id,
+                                title = p.title,
+                                content = getSumArticle(p.content),
+                                reporter = p.reporter,
+                                write_date = p.write_date,
+                                modify_date = p.modify_date,
+                                keyword = p.keyword
+                            }).ToList();
 
-            return list;
+                return list;
+            }else //카테고리별
+            {
+                var list = (from p in db.Article
+                            where p.ArticleCategory.Id == categoryNumber orderby p.write_date descending
+                            select new ArticleListModel
+                            {
+                                id = p.id,
+                                title = p.title,
+                                content = getSumArticle(p.content),
+                                reporter = p.reporter,
+                                write_date = p.write_date,
+                                modify_date = p.modify_date,
+                                keyword = p.keyword
+                            }).ToList();
+
+                return list;
+            }
+          
             
        
         }

@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using Db;
 using Business.Concrete;
 using YokyDoky.Filters;
+using PagedList;
+using PagedList.Mvc;
 
 namespace YokyDoky.Controllers
 {
@@ -100,9 +102,14 @@ namespace YokyDoky.Controllers
         }
 
         //SummaryNews
-        public ActionResult NewsList()
+        [CustomAuthorize(Roles = UserType.User)]
+        [HttpGet]
+        public ActionResult NewsList(int id, int category, int? page)
         {
-            var listModel = articleRepository.getArticleList(1, 1);
+            ViewBag.memberId = id;
+            ViewBag.category = category;
+
+            var listModel = articleRepository.getArticleList(1, category).ToList().ToPagedList(page ?? 1, 10);
             return View(listModel);
         }
 

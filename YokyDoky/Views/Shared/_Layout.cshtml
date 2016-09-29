@@ -30,8 +30,13 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("처음으로", "Index", "Home")</li>
-                    <li>@Html.ActionLink("요약신문", "NewsList", "Home")</li>
-                    <li>@Html.ActionLink("키워드설정", "SetKeyword", "Home" , new { id = Session[YokyDoky.claGlobal.SessionString_UserKey] }, null)</li>
+                    <li>@Html.ActionLink("요약신문", "NewsList", "Home", new
+                   {
+                      id = Session[YokyDoky.claGlobal.SessionString_UserKey], category = 0
+                   }, null)</li>
+
+                    <li>@Html.ActionLink("키워드설정", "SetKeyword", "Home" ,
+                       new { id = Session[YokyDoky.claGlobal.SessionString_UserKey]}, null)</li>
                     <li>@Html.ActionLink("내정보", "Index", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
